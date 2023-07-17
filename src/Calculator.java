@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Calculator {
-    public static void StartCalculator(){
+    public  void StartCalculator(){
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
 

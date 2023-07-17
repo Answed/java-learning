@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.util.Random;
 public class SimpleTriviaGame {
 
-    public static void StartGame(){
+    public void StartGame(){
         byte score = 0;
-        String answer ="";
+        String answer;
         Scanner input = new Scanner(System.in);
         Random random = new Random();
         System.out.println("You will get 3 Questions. You have to Type the answer in the console\n For each right answer u get one point");
@@ -17,7 +17,7 @@ public class SimpleTriviaGame {
 
     }
 
-    private static byte Question(int answer_index, String answer){
+    private byte Question(int answer_index, String answer){
         String[] answers = {"Yes", "No"};
         if (answer.equals(answers[answer_index])) {
             System.out.println("That is correct");
