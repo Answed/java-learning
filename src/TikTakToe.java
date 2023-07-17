@@ -4,7 +4,6 @@ public class TikTakToe {
     Scanner input = new Scanner(System.in);
     public void StartGame(){
         GenerateBoard();
-        int currentplayer = 0;
         for (int i = 0; i < 9; i++){
             int nextPlayer = (i % 2 == 0) ? 0: 1;
             System.out.println(nextPlayer);
