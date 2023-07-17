@@ -10,7 +10,7 @@ public class Calculator {
             System.out.println("Please enter ur first input");
             int inp1 = Integer.parseInt(scanner.nextLine());
             System.out.println("Please enter ur second input");
-            int inp2 = Integer.parseInt(scanner.nextLine())
+            int inp2 = Integer.parseInt(scanner.nextLine());
             switch (operator) {
                 case "Addition" -> System.out.println(inp1 + inp2);
                 case "Subtraction" -> System.out.println(inp1 - inp2);
