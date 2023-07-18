@@ -8,6 +8,9 @@ public class Bank {
        int max_overdraw_amount = 5000;
        private Account tempUser;
 
+       public Bank(int max_overdraw){
+              this.max_overdraw_amount = max_overdraw;
+       }
 
        public void LogIn(){
               System.out.println("Bitte geben Sie Ihre AccountID an\n");
