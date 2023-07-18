@@ -8,7 +8,13 @@ public class BankSystem {
     private final Scanner input = new Scanner(System.in);
 
     public void OpenBankSystem(){
-
+        boolean system_open = true;
+        while (system_open){
+            System.out.println("Bitte geben Sie den Namen Ihrer Bank ein.\n Mit Exit können Sie das Fenster wieder schließen");
+            String operator = input.nextLine();
+            if(operator.equals("Exit")) {system_open = false;}
+            else {OpenBank(operator);}
+        }
     }
 
     private void CreateBank(String bankName){
@@ -18,10 +24,7 @@ public class BankSystem {
         saved_banks.get(bankName).LogIn();
     }
 
-    private void OpenBank(){
-        System.out.println("Bitte geben Sie den Namen Ihrer Bank an");
-        String name_of_bank = input.nextLine();
-
+    private void OpenBank(String name_of_bank){
         if(saved_banks.containsKey(name_of_bank)) {saved_banks.get(name_of_bank).LogIn();}
         else {
             System.out.println("Diese Bank gibt es nicht es nicht, möchten Sie sie zu dem System hinzufügen ?\n[Y]es/[N]o");
