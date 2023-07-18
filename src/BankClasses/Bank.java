@@ -55,6 +55,8 @@ public class Bank {
                      customers.add(new Account(newUser, password, balance));
                      System.out.println("Ihre Account ID ist Ihr Vorname und Nachname klein und zusammengeschrieben.\n" +
                              "Diese wird benötigt um sich im Account wieder anzumelden");
+                     tempUser = customers.get(customers.size() - 1);
+                     LoggedIn();
               }
        }
 
