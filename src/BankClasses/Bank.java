@@ -14,11 +14,27 @@ public class Bank {
               String accountID = input.nextLine();
               if(customers.contains(accountID)) {
                      tempUser = customers.get(customers.indexOf(customers.contains(accountID)));
+                     if(CheckPassoword()){LoggedIn();}
               }
               else{
                      System.out.println("Es gibt leider kein Account mit dieser ID.\nWollen Sie einen neuen Account erstellen ?\n [Y]es/[N]o");
                      if(input.nextLine().equals("Y")){CreateAccount();}
                      else {System.out.println("Ich wünsche Ihnen einen schönen Tag");}
+              }
+       }
+
+       private void LoggedIn(){
+              boolean loggedin = true;
+              while (loggedin){
+                     System.out.println("Um Geld abzuheben geben Sie bitte Abheben ein.\n" +
+                             "Um Geld einzuzahlen geben Sie bitte Einzahlen ein\n" +
+                             "Um sich auszuloggen geben Sie bitte Exit ein.");
+                     String opeator = input.nextLine();
+                     switch (opeator){
+                            case "Abheben" -> tempUser.WithdrawMoney(GetWithDraw());
+                            case "Einzahlen" -> tempUser.DepositMoney(GetDeposit());
+                            case "Exit" -> loggedin = false;
+                     }
               }
        }
 
@@ -73,6 +89,12 @@ public class Bank {
               System.out.println("Bitte geben Sie an wieviel Geld Sie einzahlen wollen\n");
               return input.nextInt();
        }
+
+       private int GetWithDraw(){
+              System.out.println("Bitte geben Sie an wie viel Geld Sie abheben wollen");
+              return  input.nextInt();
+       }
+
        private String GetPassword(){
               System.out.println("Bitte geben Sie Ihr Passwort ein");
               return input.nextLine();
