@@ -20,7 +20,6 @@ public class Bank {
                      if(input.nextLine().equals("Y")){CreateAccount();}
                      else {System.out.println("Ich wünsche Ihnen einen schönen Tag");}
               }
-
        }
 
        private void CreateAccount(){
@@ -45,7 +44,9 @@ public class Bank {
 
        private boolean CheckPassoword(){
               System.out.printf("Guten Tag %s %s bitte geben Sie Ihr passwort ein", tempUser.accountHolder.first_name, tempUser.accountHolder.last_name);
-              
+              String password = input.nextLine();
+              if(tempUser.isPasswordCorrect(password)){return true;}
+              else {System.out.println("Das Password ist incorrect."); return  false;}
        }
 
        private String[] CreateListOfNames(){
