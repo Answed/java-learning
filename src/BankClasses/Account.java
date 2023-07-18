@@ -4,11 +4,11 @@ public class Account {
 
     private int balance;
     private final String accountID;
-    private final Person accountHolder;
+    public final Person accountHolder;
     private final String password;
 
     public Account(Person person,String password ,int balance){
-        this.accountID = person.first_name + person.last_name;
+        this.accountID = (person.first_name + person.last_name).toLowerCase();
         this.accountHolder = person;
         this.balance = balance;
         this.password = password;
@@ -29,4 +29,8 @@ public class Account {
     }
 
     public boolean isPasswordCorrect(String input_password) {return password.equals(input_password);}
+
+    public boolean equals(String accountID){
+        return this.accountID.equals(accountID);
+    }
 }

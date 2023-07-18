@@ -6,8 +6,24 @@ public class Bank {
        private List<Account> customers = new ArrayList<Account>();
        private final Scanner input = new Scanner(System.in);
        int max_overdraw_amount = 5000;
+       private Account tempUser;
 
-       public void CreateAccount(){
+
+       public void LogIn(){
+              System.out.println("Bitte geben Sie Ihre AccountID an\n");
+              String accountID = input.nextLine();
+              if(customers.contains(accountID)) {
+                     tempUser = customers.get(customers.indexOf(customers.contains(accountID)));
+              }
+              else{
+                     System.out.println("Es gibt leider kein Account mit dieser ID.\nWollen Sie einen neuen Account erstellen ?\n [Y]es/[N]o");
+                     if(input.nextLine().equals("Y")){CreateAccount();}
+                     else {System.out.println("Ich wünsche Ihnen einen schönen Tag");}
+              }
+
+       }
+
+       private void CreateAccount(){
               Person newUser;
               String[] all_names = CreateListOfNames();
               int age = GetAge();
@@ -22,7 +38,14 @@ public class Bank {
                      String password = GetPassword();
                      int balance = GetDeposit();
                      customers.add(new Account(newUser, password, balance));
+                     System.out.println("Ihre Account ID ist Ihr Vorname und Nachname klein und zusammengeschrieben.\n" +
+                             "Diese wird benötigt um sich im Account wieder anzumelden");
               }
+       }
+
+       private boolean CheckPassoword(){
+              System.out.printf("Guten Tag %s %s bitte geben Sie Ihr passwort ein", tempUser.accountHolder.first_name, tempUser.accountHolder.last_name);
+              
        }
 
        private String[] CreateListOfNames(){
