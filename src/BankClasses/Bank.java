@@ -15,9 +15,14 @@ public class Bank {
               if(age >= 18){
                      if(all_names.length == 3) { newUser = new Person(all_names[0],all_names [1], all_names[2], age,ssn); }
                      else if (all_names.length == 2) {newUser = new Person(all_names[0],all_names [1], age,ssn);}
-                     else {System.out.println("Ihr Name ist zu lang/kurz");}
+                     else {
+                            System.out.println("Ihr Name ist zu lang/kurz");
+                            return;
+                     }
+                     String password = GetPassword();
+                     int balance = GetDeposit();
+                     customers.add(new Account(newUser, password, balance));
               }
-
        }
 
        private String[] CreateListOfNames(){
@@ -37,6 +42,15 @@ public class Bank {
 
        private String GetSSN(){
               System.out.println("Bitte geben Sie Ihre Social Security Nummer ein\n");
+              return input.nextLine();
+       }
+
+       private int GetDeposit(){
+              System.out.println("Bitte geben Sie an wieviel Geld Sie einzahlen wollen\n");
+              return input.nextInt();
+       }
+       private String GetPassword(){
+              System.out.println("Bitte geben Sie Ihr Passwort ein");
               return input.nextLine();
        }
 }
