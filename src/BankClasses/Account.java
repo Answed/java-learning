@@ -7,8 +7,8 @@ public class Account {
     private final Person accountHolder;
     private final String password;
 
-    public Account(String ID, Person person,String password ,int balance){
-        this.accountID = ID;
+    public Account(Person person,String password ,int balance){
+        this.accountID = person.first_name + person.last_name;
         this.accountHolder = person;
         this.balance = balance;
         this.password = password;
@@ -27,8 +27,6 @@ public class Account {
     public void GetBalance(){
         System.out.printf("Your current balance is %s", balance);
     }
-
-    public boolean isAccountHolder(Person person) {return accountHolder.equals(person);}
 
     public boolean isPasswordCorrect(String input_password) {return password.equals(input_password);}
 }
