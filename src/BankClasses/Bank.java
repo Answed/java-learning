@@ -78,6 +78,7 @@ public class Bank {
        private int GetAge(){
               System.out.println("Bitte geben Sie Ihr Alter an");
               int age = input.nextInt();
+              input.nextLine();
               if(age < 18){
                      System.out.println("Sie sind zu jung");
                      return 0;
