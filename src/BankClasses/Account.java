@@ -26,7 +26,7 @@ public class Account {
     }
 
     public void GetBalance(){
-        System.out.printf("Your current balance is %s", balance);
+        System.out.printf("Your current balance is %s.\n", balance);
     }
 
     public boolean isPasswordCorrect(String input_password) {return password.equals(input_password);}

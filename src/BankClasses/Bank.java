@@ -73,7 +73,7 @@ public class Bank {
        }
 
        private boolean CheckPassword(){
-              System.out.printf("Guten Tag %s %s bitte geben Sie Ihr passwort ein", tempUser.accountHolder.first_name, tempUser.accountHolder.last_name);
+              System.out.printf("Guten Tag %s %s bitte geben Sie Ihr passwort ein\n", tempUser.accountHolder.first_name, tempUser.accountHolder.last_name);
               String password = input.nextLine();
               if(tempUser.isPasswordCorrect(password)){return true;}
               else {System.out.println("Das Password ist incorrect."); return  false;}
