@@ -3,7 +3,7 @@ package BankClasses;
 public class Account {
 
     private int balance;
-    private final String accountID;
+    public final String accountID;
     public final Person accountHolder;
     private final String password;
 

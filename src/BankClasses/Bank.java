@@ -2,7 +2,7 @@ package BankClasses;
 import java.util.*;
 
 public class Bank {
-       private List<Account> customers = new ArrayList<Account>();
+       private Map<String ,Account> customers = new HashMap<>();
        private final Scanner input = new Scanner(System.in);
        int max_overdraw_amount = 5000;
        private Account tempUser;
@@ -14,9 +14,9 @@ public class Bank {
        public void LogIn(){
               System.out.println("Bitte geben Sie Ihre AccountID an");
               String accountID = input.nextLine();
-              if(customers.contains(accountID)) {
-                     tempUser = customers.get(customers.indexOf(customers.contains(accountID)));
-                     if(CheckPassoword()){LoggedIn();}
+              if(customers.containsKey(accountID)) {
+                     tempUser = customers.get(accountID);
+                     if(CheckPassword()){LoggedIn();}
               }
               else{
                      System.out.println("Es gibt leider kein Account mit dieser ID.\nWollen Sie einen neuen Account erstellen ?\n[Y]es/[N]o");
@@ -64,15 +64,15 @@ public class Bank {
                      String password = GetPassword();
                      int balance = GetDeposit();
                      input.nextLine();
-                     customers.add(new Account(newUser, password, balance));
+                     tempUser = new Account(newUser, password, balance);
+                     customers.put(tempUser.accountID, tempUser);
                      System.out.println("Ihre Account ID ist Ihr Vorname und Nachname klein und zusammengeschrieben.\n" +
                              "Diese wird benötigt um sich im Account wieder anzumelden");
-                     tempUser = customers.get(customers.size() - 1);
                      LoggedIn();
               }
        }
 
-       private boolean CheckPassoword(){
+       private boolean CheckPassword(){
               System.out.printf("Guten Tag %s %s bitte geben Sie Ihr passwort ein", tempUser.accountHolder.first_name, tempUser.accountHolder.last_name);
               String password = input.nextLine();
               if(tempUser.isPasswordCorrect(password)){return true;}
