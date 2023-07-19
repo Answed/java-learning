@@ -10,7 +10,7 @@ public class BankSystem {
     public void OpenBankSystem(){
         boolean system_open = true;
         while (system_open){
-            System.out.println("Bitte geben Sie den Namen Ihrer Bank ein.\n Mit Exit können Sie das Fenster wieder schließen");
+            System.out.println("Bitte geben Sie den Namen Ihrer Bank ein.\nMit Exit können Sie das Fenster wieder schließen");
             String operator = input.nextLine();
             if(operator.equals("Exit")) {system_open = false;}
             else {OpenBank(operator);}

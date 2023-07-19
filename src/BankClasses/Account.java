@@ -9,6 +9,7 @@ public class Account {
 
     public Account(Person person,String password ,int balance){
         this.accountID = (person.first_name + person.last_name).toLowerCase();
+        System.out.println(accountID);
         this.accountHolder = person;
         this.balance = balance;
         this.password = password;

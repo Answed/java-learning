@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TikTakToe tikTakToe = new TikTakToe();
-        tikTakToe.StartGame();
+        BankSystem bankSystem = new BankSystem();
+        bankSystem.OpenBankSystem();
     }
 }

@@ -13,14 +13,14 @@ public class Bank {
        }
 
        public void LogIn(){
-              System.out.println("Bitte geben Sie Ihre AccountID an\n");
+              System.out.println("Bitte geben Sie Ihre AccountID an");
               String accountID = input.nextLine();
               if(customers.contains(accountID)) {
                      tempUser = customers.get(customers.indexOf(customers.contains(accountID)));
                      if(CheckPassoword()){LoggedIn();}
               }
               else{
-                     System.out.println("Es gibt leider kein Account mit dieser ID.\nWollen Sie einen neuen Account erstellen ?\n [Y]es/[N]o");
+                     System.out.println("Es gibt leider kein Account mit dieser ID.\nWollen Sie einen neuen Account erstellen ?\n[Y]es/[N]o");
                      if(input.nextLine().equals("Y")){CreateAccount();}
                      else {System.out.println("Ich wünsche Ihnen einen schönen Tag");}
               }
@@ -71,12 +71,12 @@ public class Bank {
        }
 
        private String[] CreateListOfNames(){
-              System.out.println("Bitte geben Sie Ihren vollen Namen ein\n");
+              System.out.println("Bitte geben Sie Ihren vollen Namen ein");
               String full_name = input.nextLine();
               return full_name.trim().split("\\s+");
        }
        private int GetAge(){
-              System.out.println("Bitte geben Sie Ihr Alter an\n");
+              System.out.println("Bitte geben Sie Ihr Alter an");
               int age = input.nextInt();
               if(age < 18){
                      System.out.println("Sie sind zu jung");
@@ -86,17 +86,18 @@ public class Bank {
        }
 
        private String GetSSN(){
-              System.out.println("Bitte geben Sie Ihre Social Security Nummer ein\n");
+              System.out.println("Bitte geben Sie Ihre Social Security Nummer ein");
               return input.nextLine();
        }
 
        private int GetDeposit(){
-              System.out.println("Bitte geben Sie an wieviel Geld Sie einzahlen wollen\n");
+              System.out.println("Bitte geben Sie an wieviel Geld Sie einzahlen wollen");
               return input.nextInt();
        }
 
        private int GetWithDraw(){
               System.out.println("Bitte geben Sie an wie viel Geld Sie abheben wollen");
+
               return  input.nextInt();
        }
 
