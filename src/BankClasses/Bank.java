@@ -1,5 +1,4 @@
 package BankClasses;
-
 import java.util.*;
 
 public class Bank {
@@ -29,14 +28,23 @@ public class Bank {
        private void LoggedIn(){
               boolean loggedin = true;
               while (loggedin){
-                     System.out.println("Um Geld abzuheben geben Sie bitte Abheben ein.\n" +
-                             "Um Geld einzuzahlen geben Sie bitte Einzahlen ein\n" +
-                             "Um sich auszuloggen geben Sie bitte Exit ein.");
-                     String opeator = input.nextLine();
-                     switch (opeator){
-                            case "Abheben" -> tempUser.WithdrawMoney(GetWithDraw());
-                            case "Einzahlen" -> tempUser.DepositMoney(GetDeposit());
-                            case "Exit" -> loggedin = false;
+                     System.out.println("""
+                             Um Geld abzuheben geben Sie bitte Abheben ein.
+                             Um Geld einzuzahlen geben Sie bitte Einzahlen ein
+                             Um sich auszuloggen geben Sie bitte Exit ein.""");
+                     String operator = input.nextLine();
+                     switch (operator){
+                            case "Abheben" -> {
+                                   tempUser.WithdrawMoney(GetWithDraw());
+                                   input.nextLine();
+                            }
+                            case "Einzahlen" -> {
+                                   tempUser.DepositMoney(GetDeposit());
+                                   input.nextLine();
+                            }
+                            case "Exit" -> {
+                                   return;
+                            }
                      }
               }
        }
@@ -55,6 +63,7 @@ public class Bank {
                      }
                      String password = GetPassword();
                      int balance = GetDeposit();
+                     input.nextLine();
                      customers.add(new Account(newUser, password, balance));
                      System.out.println("Ihre Account ID ist Ihr Vorname und Nachname klein und zusammengeschrieben.\n" +
                              "Diese wird benötigt um sich im Account wieder anzumelden");

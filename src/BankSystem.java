@@ -12,6 +12,7 @@ public class BankSystem {
         while (system_open){
             System.out.println("Bitte geben Sie den Namen Ihrer Bank ein.\nMit Exit können Sie das Fenster wieder schließen");
             String operator = input.nextLine();
+            System.out.println(operator);
             if(operator.equals("Exit")) {system_open = false;}
             else {OpenBank(operator);}
         }
@@ -20,6 +21,7 @@ public class BankSystem {
     private void CreateBank(String bankName){
         System.out.println("Bitte geben Sie an vieviel maximal überzogen werden darf.");
         int max_overdraw = input.nextInt();
+        input.nextLine();
         saved_banks.put(bankName, new Bank(max_overdraw));
         saved_banks.get(bankName).LogIn();
     }
